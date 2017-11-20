@@ -19,7 +19,7 @@ public class Player extends Person {
     private int assignmentProgress; //the progress of grading an assignment
     private Item tempItem;
     private boolean dont = false;
-    private Image playerImage = new Image("/texture/player.png");
+    private Image playerImage;
     private String facing;
 
     /**
@@ -36,7 +36,8 @@ public class Player extends Person {
                 y,
                 Person.DEFAULT_PERSON_WIDTH,
                 Person.DEFAULT_PERSON_HEIGHT,
-                currentRoom);
+                currentRoom,
+                name);
         super.setEntityImage(playerImage);
         
         this.energy = 100; //the current energy level

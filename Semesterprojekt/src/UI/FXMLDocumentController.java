@@ -37,35 +37,37 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Canvas canvasId;
 
+    @FXML
     private void handleButtonAction(ActionEvent event) {
         GraphicsContext gc = canvasId.getGraphicsContext2D();
+        ib.saveGame();
         // set focus on canvas
-        gp.setFocusTraversable(true);
-        // set keylistener
-        gp.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                switch (event.getCode()) {
-                    case D:
-                        ib.playerMove("right");
-                        break;
-                    case A:
-                        ib.playerMove("left");
-                        break;
-                    case W:
-                        ib.playerMove("up");
-                        break;
-                    case S:
-                        ib.playerMove("down");
-                        break;
-                    case SPACE:
-                        ib.playerInteract("idk");
-                        break;
-                }
-            }
-        });
-
-        // current time in nano time
+//        gp.setFocusTraversable(true);
+//        // set keylistener
+//        gp.setOnKeyPressed(new EventHandler<KeyEvent>() {
+//            @Override
+//            public void handle(KeyEvent event) {
+//                switch (event.getCode()) {
+//                    case D:
+//                        ib.playerMove("right");
+//                        break;
+//                    case A:
+//                        ib.playerMove("left");
+//                        break;
+//                    case W:
+//                        ib.playerMove("up");
+//                        break;
+//                    case S:
+//                        ib.playerMove("down");
+//                        break;
+//                    case SPACE:
+//                        ib.playerInteract("idk");
+//                        break;
+//                }
+//            }
+//        });
+        System.out.println(ib.toString());
+      //   current time in nano time
         final long startNanoTime = System.nanoTime();
         new AnimationTimer() {
             public void handle(long currentNanoTime) {
@@ -108,18 +110,5 @@ public class FXMLDocumentController implements Initializable {
     }
 
 
- 
-
-
-    @Override
-    public void openUI() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-
-    @FXML
-    private void buttonSavePressed(ActionEvent event) {
-        ib.print();
-    }
 
 }

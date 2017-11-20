@@ -24,6 +24,10 @@ public class EntityManager {
 
     public EntityManager(RoomManager rm) {
         this.rm = rm;
+        player = new Player(0,0,"jizz",rm.getCurrentRoom());
+    }
+    public void print() {
+        System.out.println(player.getName());
     }
 
     // ENTITY MANAGMENT METHODS

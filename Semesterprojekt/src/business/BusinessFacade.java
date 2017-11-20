@@ -72,12 +72,14 @@ public class BusinessFacade implements IBusiness {
 
     @Override
     public void saveGame() {
-        entityManager.saveGame();
+        entityManager.print();
+        entityManager.savePlayers();
     }
 
     @Override
     public void loadGame() {
         entityManager.loadGame();
+        
     }
     
     
