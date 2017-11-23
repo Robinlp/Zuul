@@ -87,7 +87,7 @@ public class BusinessFacade implements IBusiness {
 
     @Override
     public String highScore() {
-        highscore.createXML();
+        
         highscore.saveHighscore();
         String a = highscore.toString();
         return a;
