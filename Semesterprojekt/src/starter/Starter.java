@@ -4,6 +4,7 @@ import Acq.IBusiness;
 import Acq.IUI;
 import business.BusinessFacade;
 import UI.UI;
+import data.Highscore;
 
 
 /**
@@ -12,10 +13,12 @@ import UI.UI;
  */
 public class Starter {
     public static void main(String[] args) {
+        Highscore h = new Highscore();
         IBusiness business = new BusinessFacade();
         IUI ui = new UI();
         ui.injectBusiness(business);
         ui.openUI();
+        h.saveHighscore();
         
 
     }
