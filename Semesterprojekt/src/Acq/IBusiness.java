@@ -18,4 +18,7 @@ public interface IBusiness {
     void saveGame();
     // Load game from memory.
     void loadGame();
+    // Show Highscore from memory.
+    String highScore();
+    
 }

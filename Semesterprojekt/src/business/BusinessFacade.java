@@ -1,6 +1,7 @@
 package business;
 
 import Acq.IBusiness;
+import data.Highscore;
 
 /**
  *
@@ -10,6 +11,7 @@ public class BusinessFacade implements IBusiness {
 
     private EntityManager entityManager;
     private RoomManager roomManager;
+    private Highscore highscore;
 
     /**
      * zero-arg constructor assigns values to EntityManager & RoomManager
@@ -17,6 +19,7 @@ public class BusinessFacade implements IBusiness {
     public BusinessFacade() {
         roomManager = new RoomManager();
         entityManager = new EntityManager(roomManager);
+        highscore = new Highscore();
     }
 
     /**
@@ -75,10 +78,19 @@ public class BusinessFacade implements IBusiness {
     public void saveGame() {
         entityManager.saveGame();
     }
+    
 
     @Override
     public void loadGame() {
         entityManager.loadGame();
+    }
+
+    @Override
+    public String highScore() {
+        highscore.createXML();
+        highscore.saveHighscore();
+        String a = highscore.toString();
+        return a;
     }
 
 }

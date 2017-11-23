@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
@@ -49,11 +50,13 @@ public class FXMLDocumentController implements Initializable {
     private Button useButton;
     @FXML
     private Button dropButton;
-    
+    @FXML
+    private TextArea textArea;
+
     @FXML
     private void newGameButton(ActionEvent event) {
         GraphicsContext gc = canvasId.getGraphicsContext2D();
-        
+
         // We have to move to to another place cause it is movement
         // set focus on canvas
         gp.setFocusTraversable(true);
@@ -109,8 +112,7 @@ public class FXMLDocumentController implements Initializable {
         Tooltip newGametip = new Tooltip("Start fresh new game");
         Tooltip dropItem = new Tooltip("drop the item");
         Tooltip useItem = new Tooltip("use the item");
-        
-        
+
         //Creating tooltips on buttons
         Tooltip.install(exitButton, exittip);
         Tooltip.install(saveButton, savetip);
@@ -119,7 +121,7 @@ public class FXMLDocumentController implements Initializable {
         Tooltip.install(highscoreButton, highscoretip);
         Tooltip.install(dropButton, dropItem);
         Tooltip.install(useButton, useItem);
-        
+
     }
 
     public void drawImages(GraphicsContext gc) {
@@ -129,10 +131,9 @@ public class FXMLDocumentController implements Initializable {
                 Image tile = new Image("/textures/floor10.png");
                 gc.drawImage(tile, X * j, Y * i);
                 // render entities
-                if(!ib.entityGetImage(i, j).equals("testSquare.png")) {
-                    gc.drawImage(choosePic(i,j), X * j, Y * i);
+                if (!ib.entityGetImage(i, j).equals("testSquare.png")) {
+                    gc.drawImage(choosePic(i, j), X * j, Y * i);
                 }
-                
 
             }
         }
@@ -144,14 +145,10 @@ public class FXMLDocumentController implements Initializable {
         return image;
     }
 
-
- 
-
     //@Override
     public void openUI() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
 
     private void buttonSavePressed(ActionEvent event) {
         ib.saveGame();
@@ -165,7 +162,6 @@ public class FXMLDocumentController implements Initializable {
 //    @FXML
 //    private void newGameButton(ActionEvent event) {
 //    }
-
     @FXML
     private void loadButton(ActionEvent event) {
         ib.loadGame();
@@ -178,6 +174,11 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void highscoreButton(ActionEvent event) {
+        ib.highScore();
+        
+        String a=ib.highScore();
+        textArea.appendText(a);
+        textArea.appendText("lol");
     }
 
     @FXML
