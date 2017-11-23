@@ -174,11 +174,8 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void highscoreButton(ActionEvent event) {
-        ib.highScore();
         
-        String a=ib.highScore();
-        textArea.appendText(a);
-        textArea.appendText("lol");
+        textArea.appendText(ib.highScore());
     }
 
     @FXML
