@@ -1,7 +1,6 @@
 package business;
 
 // IMPORTS
-
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
@@ -29,11 +28,11 @@ public class EntityManager {
     // Container for entity IDs from CSV file.
     private static HashMap<String, String[][]> entityCSV = new HashMap<>();
     private static RoomManager rm;
-    
+
     /**
      * Primary constructor for the EntityManager class.
-     * 
-     * @param rm    RoomManager, used to assign entities to a specific room.
+     *
+     * @param rm RoomManager, used to assign entities to a specific room.
      */
     public EntityManager(RoomManager rm) {
         this.rm = rm;                   // Assign room manager object to class.
@@ -44,162 +43,159 @@ public class EntityManager {
     }
 
     // ENTITY MANAGMENT METHODS
-
     /**
      * Add initialized student to the student list.
-     * 
-     * @param s     Student, student to be added to studet list.
+     *
+     * @param s Student, student to be added to studet list.
      */
     public void addStudent(Student s) {
         studentlist.add(s);
     }
-    
+
     /**
      * Despawn student.
-     * 
-     * @param s     Student, student that need to be removed from the game.
+     *
+     * @param s Student, student that need to be removed from the game.
      */
     public void removeStudent(Student s) {
         studentlist.remove(s);
     }
 
-    
     /**
-     * Spawn students in their respective active room, in the beginning of the 
+     * Spawn students in their respective active room, in the beginning of the
      * game.
      */
-    public void showStudents(){
-        for(Student s : studentlist){
+    public void showStudents() {
+        for (Student s : studentlist) {
             s.getCurrentRoom().setEntity(s);
         }
     }
-    
+
     /**
      * Spawn furnitures in their respective active room, in the beginning of the
      * game.
      */
-    public void showFurniture(){
-        for(Furniture d : furniturelist){
+    public void showFurniture() {
+        for (Furniture d : furniturelist) {
             d.getCurrentRoom().setEntity(d);
 
         }
     }
-    
+
     /**
      * Spawn items in their respective active room, at the beginning of the
      * game.
      */
-    public void showItems(){
-        for(Item i : itemlist)
+    public void showItems() {
+        for (Item i : itemlist) {
             i.getCurrentRoom().setEntity(i);
+        }
     }
 
     /**
      * Add initialized furniture to the furniture list.
-     * 
-     * @param f     Furniture, to be placed in the furniture list.
+     *
+     * @param f Furniture, to be placed in the furniture list.
      */
-
     public void addFurniture(Furniture f) {
         furniturelist.add(f);
     }
-    
+
     /**
      * Remove furniture object from furniture list.
-     * 
-     * @param f     Furniture, to be removed from furniture list.
+     *
+     * @param f Furniture, to be removed from furniture list.
      */
     public void removeFurniture(Furniture f) {
         furniturelist.remove(f);
     }
-    
+
     /**
      * Add initializedd item to the item list.
-     * 
-     * @param i     Item, to be placed in the item list.
+     *
+     * @param i Item, to be placed in the item list.
      */
     public void addItem(Item i) {
         itemlist.add(i);
     }
-    
+
     /**
      * Remove item object from item list.
-     * 
-     * @param i     Item, to be removed from item list.
+     *
+     * @param i Item, to be removed from item list.
      */
     public void removeItem(Item i) {
         itemlist.remove(i);
     }
 
     // SETTERS & GETTERS
-
     /**
      * Get player object.
-     * 
-     * @return      Player, player object retrieved.
+     *
+     * @return Player, player object retrieved.
      */
     public Player getPlayer() {
         return player;
     }
-    
+
     /**
      * Replace player object.
-     * 
-     * @param player    Player, the new player object to replace previous.
+     *
+     * @param player Player, the new player object to replace previous.
      */
     public void setPlayer(Player player) {
         this.player = player;
     }
-    
+
     /**
      * Get student list.
-     * 
-     * @return      ArrayList<Student>, student list to retrieve.
+     *
+     * @return ArrayList<Student>, student list to retrieve.
      */
     public ArrayList<Student> getStudentList() {
         return studentlist;
     }
-    
+
     /**
      * Replace student list.
-     * 
-     * @param studentlist   ArrayList<Student>, student list to assign.
+     *
+     * @param studentlist ArrayList<Student>, student list to assign.
      */
     public void setStudentList(ArrayList<Student> studentlist) {
         this.studentlist = studentlist;
     }
-    
+
     /**
      * Get furniture list.
-     * 
-     * @return      ArrayList<Furniture>, furniture list to retrieve.
+     *
+     * @return ArrayList<Furniture>, furniture list to retrieve.
      */
     public ArrayList<Furniture> getFurnitureList() {
         return furniturelist;
     }
-    
+
     /**
      * Replace furniture list.
-     * 
-     * @param furniturelist     ArrayList<Student>, furniture list to assign.
+     *
+     * @param furniturelist ArrayList<Student>, furniture list to assign.
      */
     public void setFurnitureList(ArrayList<Furniture> furniturelist) {
         this.furniturelist = furniturelist;
     }
-    
+
     /**
      * Get item list.
-     * 
-     * @return      ArrayList<Item>, item list to retrieve.
+     *
+     * @return ArrayList<Item>, item list to retrieve.
      */
     public ArrayList<Item> getItemList() {
         return itemlist;
     }
-    
+
     /**
      * Replace item list.
-     * 
-     * @param itemlist      ArrayList<Item>, item list to assign.
+     *
+     * @param itemlist ArrayList<Item>, item list to assign.
      */
     public void setItemList(ArrayList<Item> itemlist) {
         this.itemlist = itemlist;
@@ -247,7 +243,7 @@ public class EntityManager {
                            array as the value. */
                         String[][] idList = new String[10][10];
                         entityCSV.put(roomName, idList);
-                    // Otherwise assign ID to grid position in hashmap value[][] 
+                        // Otherwise assign ID to grid position in hashmap value[][] 
                     } else {
                         /* Iterate through each x-coordinate in room grid in CSV
                            file and look for ID numbers. */
@@ -323,11 +319,11 @@ public class EntityManager {
      * Instantiate entity objects based on ID number and add them to their
      * respective entity list.
      *
-     * @param i             int, y-coordinate of grid position.
-     * @param j             int, x-coordinate of grid position.
-     * @param name          String, name of room for entity to 'spawn' in.
-     * @param playerName    String, name of player.
-     * @param IDnum         String, ID of the type of entity to be created.
+     * @param i int, y-coordinate of grid position.
+     * @param j int, x-coordinate of grid position.
+     * @param name String, name of room for entity to 'spawn' in.
+     * @param playerName String, name of player.
+     * @param IDnum String, ID of the type of entity to be created.
      */
     public void entityTypes(int i,
             int j,
@@ -450,8 +446,7 @@ public class EntityManager {
                         false,
                         "/textures/student12.png"));
                 break;
-                
-            
+
             case "chair1":
                 furniturelist.add(new Chair(j,
                         i,
@@ -460,8 +455,7 @@ public class EntityManager {
                         rm.getRoom(name),
                         "/textures/chair1.png"));
                 break;
-                
-            
+
             case "chair2":
                 furniturelist.add(new Chair(j,
                         i,
@@ -469,9 +463,9 @@ public class EntityManager {
                         64,
                         rm.getRoom(name),
                         "/textures/chair2.png"));
-                
+
             // Door, inner, east, type 1.
-            case "ID63": 
+            case "ID63":
                 furniturelist.add(new Door(j,
                         i,
                         64,
@@ -481,7 +475,7 @@ public class EntityManager {
                         "/textures/door2.png",
                         false));
                 break;
-            
+
             // Door, inner, south, type 1.
             case "ID64":
                 furniturelist.add(new Door(j,
@@ -493,7 +487,7 @@ public class EntityManager {
                         "/textures/door1.png",
                         false));
                 break;
-                
+
             // Door, inner, west, type 1.
             case "ID65":
                 furniturelist.add(new Door(j,
@@ -505,7 +499,7 @@ public class EntityManager {
                         "/textures/door2.png",
                         false));
                 break;
-                
+
             // Door, inner, north, type 1.
             case "ID66":
                 furniturelist.add(new Door(j,
@@ -517,8 +511,8 @@ public class EntityManager {
                         "/textures/door1.png",
                         false));
                 break;
-                
-            case "ID63L": 
+
+            case "ID63L":
                 furniturelist.add(new Door(j,
                         i,
                         64,
@@ -528,7 +522,7 @@ public class EntityManager {
                         "/textures/door2.png",
                         true));
                 break;
-            
+
             case "ID64L":
                 furniturelist.add(new Door(j,
                         i,
@@ -539,7 +533,7 @@ public class EntityManager {
                         "/textures/door1.png",
                         true));
                 break;
-                
+
             case "ID65L":
                 furniturelist.add(new Door(j,
                         i,
@@ -550,7 +544,7 @@ public class EntityManager {
                         "/textures/door2.png",
                         true));
                 break;
-                
+
             case "ID66L":
                 furniturelist.add(new Door(j,
                         i,
@@ -563,7 +557,7 @@ public class EntityManager {
                 break;
 
             // Door, outer, east, type 1.
-            case "ID67": 
+            case "ID67":
                 furniturelist.add(new Door(j,
                         i,
                         64,
@@ -572,7 +566,7 @@ public class EntityManager {
                         rm.getRoom(name),
                         "/textures/door12.png", false));
                 break;
-                
+
             // Door, outer, east, type 2.
             case "ID68":
                 furniturelist.add(new Door(j,
@@ -583,7 +577,7 @@ public class EntityManager {
                         rm.getRoom(name),
                         "/textures/door11.png", false));
                 break;
-            
+
             // Door, outer, south, type 1.
             case "ID69":
                 furniturelist.add(new Door(j,
@@ -594,7 +588,7 @@ public class EntityManager {
                         rm.getRoom(name),
                         "/textures/door13.png", false));
                 break;
-                
+
             // Door, outer, south, type 2.
             case "ID70":
                 furniturelist.add(new Door(j,
@@ -605,7 +599,7 @@ public class EntityManager {
                         rm.getRoom(name),
                         "/textures/door14.png", false));
                 break;
-                
+
             // Chair facing north.
             case "ID71":
                 furniturelist.add(new Chair(j,
@@ -615,7 +609,7 @@ public class EntityManager {
                         rm.getRoom(name),
                         "/textures/chair3.png"));
                 break;
-                
+
             // Chair facing east.
             case "ID72":
                 furniturelist.add(new Chair(j,
@@ -625,7 +619,7 @@ public class EntityManager {
                         rm.getRoom(name),
                         "/textures/chair4.png"));
                 break;
-                
+
             // Table furniture.
             case "ID73":
                 furniturelist.add(new Table(j,
@@ -635,7 +629,7 @@ public class EntityManager {
                         rm.getRoom(name),
                         false, 0));
                 break;
-                
+
             // Bookcase, left end, facing south.
             case "ID74":
                 furniturelist.add(new Bookcase(j,
@@ -645,7 +639,7 @@ public class EntityManager {
                         rm.getRoom(name),
                         "/textures/bookcase1.png"));
                 break;
-                
+
             // Bookcase, middle section, facing south, open book on top.
             case "ID75":
                 furniturelist.add(new Bookcase(j,
@@ -655,7 +649,7 @@ public class EntityManager {
                         rm.getRoom(name),
                         "/textures/bookcase2.png"));
                 break;
-                
+
             // Bookcase, right end, facing south.
             case "ID76":
                 furniturelist.add(new Bookcase(j,
@@ -665,7 +659,7 @@ public class EntityManager {
                         rm.getRoom(name),
                         "/textures/bookcase3.png"));
                 break;
-                
+
             // Bookcase, right end, facing north.
             case "ID77":
                 furniturelist.add(new Bookcase(j,
@@ -675,7 +669,7 @@ public class EntityManager {
                         rm.getRoom(name),
                         "/textures/bookcase4.png"));
                 break;
-                
+
             // Bookcase, middle section, facing north.
             case "ID78":
                 furniturelist.add(new Bookcase(j,
@@ -685,7 +679,7 @@ public class EntityManager {
                         rm.getRoom(name),
                         "/textures/bookcase5.png"));
                 break;
-                
+
             // Bookcase, left end, facing north.
             case "ID79":
                 furniturelist.add(new Bookcase(j,
@@ -695,7 +689,7 @@ public class EntityManager {
                         rm.getRoom(name),
                         "/textures/bookcase6.png"));
                 break;
-                
+
             // Plant, hedge.
             case "ID80":
                 furniturelist.add(new Plant(j,
@@ -705,7 +699,7 @@ public class EntityManager {
                         rm.getRoom(name),
                         "/textures/hedge1.png"));
                 break;
-            
+
             // Plant, pot plant.
             case "ID81":
                 furniturelist.add(new Plant(j,
@@ -715,7 +709,7 @@ public class EntityManager {
                         rm.getRoom(name),
                         "/textures/potplant.png"));
                 break;
-                
+
             // Key item, for unlocking doors.
             case "ID82":
                 itemlist.add(new Key(j,
@@ -725,7 +719,7 @@ public class EntityManager {
                         rm.getRoom(name),
                         "/textures/key.png"));
                 break;
-                
+
             // Coffee item.
             case "ID83":
                 itemlist.add(new Coffee(j, i, 64, 64, rm.getRoom(name)));
@@ -738,24 +732,23 @@ public class EntityManager {
                 break;
         }
     }
-    
+
     /**
-     * Senpai-edition.
-     * Instantiate entity objects based on ID number and add them to their
-     * respective entity list.
-     * 
-     * @param i             int, y-coordinate of grid position.
-     * @param j             int, x-coordinate of grid position.
-     * @param name          String, name of room for entity to 'spawn' in.
-     * @param playerName    String, name of player.
-     * @param IDnum         String, ID of the type of entity to be created.
+     * Senpai-edition. Instantiate entity objects based on ID number and add
+     * them to their respective entity list.
+     *
+     * @param i int, y-coordinate of grid position.
+     * @param j int, x-coordinate of grid position.
+     * @param name String, name of room for entity to 'spawn' in.
+     * @param playerName String, name of player.
+     * @param IDnum String, ID of the type of entity to be created.
      */
     public void senpaiTypes(int i,
             int j,
             String name,
             String playerName,
             String IDnum) {
-        
+
         // Switch cases for what type of entity it is
         switch (IDnum.toUpperCase()) {
             // Instance of peaceful kouhai (face covered by hair).
@@ -862,7 +855,7 @@ public class EntityManager {
                         false,
                         "/textures/kouhai2.png"));
                 break;
-                
+
             /* In case the ID is not a special case, instantiate entity from
                 the regular game edition. */
             default:
@@ -872,7 +865,6 @@ public class EntityManager {
     }
 
     // LOAD & SAVE METHODS
-
     /**
      * Method for saving the game progress.
      */
@@ -884,7 +876,7 @@ public class EntityManager {
         saveFurniture();    // Save furniture list to file.
         saveInventory();    // Save inventory list to file.
     }
-    
+
     /**
      * Method for loading the previously saved game progress.
      */
@@ -896,19 +888,18 @@ public class EntityManager {
         loadInventory();    // Load inventory list from file.
     }
 
-    
     /**
      * Create save folder if it does not exist.
      */
-    public void makeSaveFolder(){
-        File folder = new File(System.getProperty("user.home") +
-                "\\Documents\\zuul");
+    public void makeSaveFolder() {
+        File folder = new File(System.getProperty("user.home")
+                + "\\Documents\\zuul");
         // If folder does not exist, create directory.
-        if(!folder.exists()){
+        if (!folder.exists()) {
             folder.mkdirs();
         }
     }
-    
+
     /**
      * Save item list to file.
      */
@@ -919,7 +910,7 @@ public class EntityManager {
             Writer fileWriter = new BufferedWriter(new OutputStreamWriter(
                     new FileOutputStream(System.getProperty("user.home")
                             + "\\Documents\\zuul\\SaveItemsTest.txt")));
-            
+
             // Iterate through item list and write them to file.
             for (Item item : itemlist) {
                 fileWriter.append(item.getName());
@@ -933,7 +924,7 @@ public class EntityManager {
 
                 System.out.println("Saved items");
             }
-            
+
             // Flush and then close file stream.
             fileWriter.close();
         } catch (IOException e) { // File write error print.
@@ -941,7 +932,7 @@ public class EntityManager {
                     + "please check the save directory in the code.");
         }
     }
-    
+
     /**
      * Save inventory list to file.
      */
@@ -952,23 +943,23 @@ public class EntityManager {
             Writer fileWriter = new BufferedWriter(new OutputStreamWriter(
                     new FileOutputStream(System.getProperty("user.home")
                             + "\\Documents\\zuul\\SaveInventoryTest.txt")));
-            
+
             /* Iterate through player's inventory list and write the items to
                file. */
 //            for (Item item : player.inventory().getInventory()) {
 //                fileWriter.append(item.getName());
 //            }
             fileWriter.append("\n");
-            
+
             // Flush and then close file stream.
             fileWriter.close();
-            
+
         } catch (IOException e) { // File write error print.
             System.err.println("BEEP BOOP, COULDNT SAVE INVENTORY... "
                     + "please check the save directory in the code.");
         }
     }
-    
+
     /**
      * Save player to file.
      */
@@ -991,16 +982,16 @@ public class EntityManager {
             fileWriter.append("\n");
 
             System.out.println("Saved Player");
-            
+
             // Flush and then close file stream.
             fileWriter.close();
-            
+
         } catch (IOException e) { // File IO error print.
             System.err.println("BEEP BOOP, COULDNT SAVE PLAYERS... "
                     + "please check the save directory in the code.");
         }
     }
-    
+
     /**
      * Save student list to file.
      */
@@ -1011,7 +1002,7 @@ public class EntityManager {
             Writer fileWriter = new BufferedWriter(new OutputStreamWriter(
                     new FileOutputStream(System.getProperty("user.home")
                             + "\\Documents\\zuul\\SaveStudentTest.txt")));
-            
+
             // Write status of students to file.
             for (Student student : studentlist) {
                 fileWriter.append(String.valueOf(student.getX()));
@@ -1026,7 +1017,7 @@ public class EntityManager {
 
                 System.out.println("Saved Students");
             }
-            
+
             // Flush and then close file stream.
             fileWriter.close();
         } catch (IOException e) {
@@ -1034,7 +1025,7 @@ public class EntityManager {
                     + "please check the save directory in the code.");
         }
     }
-    
+
     /**
      * Save furniture list to file.
      */
@@ -1045,7 +1036,7 @@ public class EntityManager {
             Writer fileWriter = new BufferedWriter(new OutputStreamWriter(
                     new FileOutputStream(System.getProperty("user.home")
                             + "\\Documents\\zuul\\SaveFurnitureTest.txt")));
-            
+
             // Write status of furniture to file.
             for (Furniture furniture : furniturelist) {
                 fileWriter.append(String.valueOf(furniture.getX()));
@@ -1057,19 +1048,23 @@ public class EntityManager {
                 fileWriter.append(furniture.getCurrentRoom().getName());
                 fileWriter.append(",");
                 fileWriter.append(furniture.getImagePath());
+                fileWriter.append(",");
+                fileWriter.append(furniture.getDirection());
+                fileWriter.append(",");
+                fileWriter.append(String.valueOf(furniture.getIsLocked()));
                 fileWriter.append("\n");
                 System.out.println("Saved Furniture");
             }
-            
+
             // Flush and then close file stream.
             fileWriter.close();
-            
+
         } catch (IOException e) { // File IO error print.
             System.err.println("BEEP BOOP, COULDNT SAVE FURNITURE... "
                     + "please check the save directory in the code.");
         }
     }
-    
+
     /**
      * Load item list from previously saved game file.
      */
@@ -1080,10 +1075,10 @@ public class EntityManager {
             BufferedReader fileReader = new BufferedReader(
                     new FileReader(System.getProperty("user.home")
                             + ("\\Documents\\zuul\\SaveItemsTest.txt")));
-            
+
             // Clear item list.
             itemlist.clear();
-            
+
             String line;
             // Continue to iterate as long as there is file content.
             while ((line = fileReader.readLine()) != null) {
@@ -1103,7 +1098,7 @@ public class EntityManager {
                                     (Room) rm.getRoomlist().get(tokens[2]));
                             itemlist.add(d);
                             break;
-                            
+
                         // If coffee, add item to item list.
                         case "Coffee":
                             Coffee c = new Coffee(
@@ -1114,7 +1109,7 @@ public class EntityManager {
                                     (Room) rm.getRoomlist().get(tokens[2]));
                             itemlist.add(c);
                             break;
-                            
+
                         // If assignment, add item to item list.
                         case "Assignment":
                             Assignment a = new Assignment(
@@ -1125,7 +1120,7 @@ public class EntityManager {
                                     (Room) rm.getRoomlist().get(tokens[2]));
                             itemlist.add(a);
                             break;
-                            
+
                         // If key, add item to item list.
                         case "Key":
                             Key k = new Key(Integer.parseInt(
@@ -1137,7 +1132,7 @@ public class EntityManager {
                                     "/textures/key.png");
                             itemlist.add(k);
                             break;
-                            
+
                         // If energy drink, add item to item list.
                         case "EnergyDrink":
                             EnergyDrink e = new EnergyDrink(
@@ -1148,14 +1143,14 @@ public class EntityManager {
                                     rm.getCurrentRoom().getExit(tokens[2]));
                             itemlist.add(e);
                             break;
-                        
+
                         // Ignore anything else
                         default:
                             break;
                     }
                 }
             }
-            
+
             // Flush and then close file stream.
             fileReader.close();
 
@@ -1164,7 +1159,7 @@ public class EntityManager {
                     + "please check the save directory in the code.");
         }
     }
-    
+
     /**
      * Load inventory list from previously saved game file.
      */
@@ -1175,12 +1170,12 @@ public class EntityManager {
             BufferedReader fileReader = new BufferedReader(
                     new FileReader(System.getProperty("user.home")
                             + ("\\Documents\\zuul\\SaveInventoryTest.txt")));
-            
+
             // Clear inventory list.
             player.inventory().getInventory().clear();
-            
+
             String line;
-            
+
             while ((line = fileReader.readLine()) != null) {
                 // Get all tokens available in line
                 String[] tokens = line.split(",");
@@ -1198,7 +1193,7 @@ public class EntityManager {
                                     (Room) rm.getRoomlist().get(tokens[2]));
                             player.inventory().addItem(d);
                             break;
-                            
+
                         // If coffee, add to inventory list.
                         case "Coffee":
                             Coffee c = new Coffee(Integer.parseInt(tokens[0]),
@@ -1208,7 +1203,7 @@ public class EntityManager {
                                     (Room) rm.getRoomlist().get(tokens[2]));
                             player.inventory().addItem(c);
                             break;
-                            
+
                         // If assignment, add to inventory list.
                         case "Assignment":
                             Assignment a = new Assignment(
@@ -1219,7 +1214,7 @@ public class EntityManager {
                                     (Room) rm.getRoomlist().get(tokens[2]));
                             player.inventory().addItem(a);
                             break;
-                            
+
                         // If key, add to inventory list.
                         case "Key":
                             Key k = new Key(Integer.parseInt(tokens[0]),
@@ -1230,7 +1225,7 @@ public class EntityManager {
                                     "/textures/key.png");
                             player.inventory().addItem(k);
                             break;
-                            
+
                         // If energy drink, add to inventory list.
                         case "EnergyDrink":
                             EnergyDrink e = new EnergyDrink(
@@ -1241,23 +1236,23 @@ public class EntityManager {
                                     rm.getCurrentRoom().getExit(tokens[2]));
                             player.inventory().addItem(e);
                             break;
-                            
+
                         // Ignore anything else.
                         default:
                             break;
                     }
                 }
             }
-            
+
             // Flush and then close file stream.
             fileReader.close();
-            
+
         } catch (IOException e) { // File read error print.
             System.err.println("BEEP BOOP, COULDNT LOAD PLAYERS... "
                     + "please check the save directory in the code.");
         }
     }
-    
+
     /**
      * Load player from previously saved game file.
      */
@@ -1270,7 +1265,7 @@ public class EntityManager {
                             + ("\\Documents\\zuul\\SavePlayersTest.txt")));
             // Set player to null.
             this.player = null;
-            
+
             String line;
             // While file is not empty continue.
             while ((line = fileReader.readLine()) != null) {
@@ -1285,16 +1280,16 @@ public class EntityManager {
                             (Room) rm.getRoomlist().get(tokens[3]));
                 }
             }
-            
+
             // Flush and then close file stream.
             fileReader.close();
-            
+
         } catch (IOException e) { // File IO error print.
             System.err.println("BEEP BOOP, COULDNT LOAD PLAYERS... "
                     + "please check the save directory in the code.");
         }
     }
-    
+
     /**
      * Load student list from previously saved game file.
      */
@@ -1307,7 +1302,7 @@ public class EntityManager {
                             + ("\\Documents\\zuul\\SaveStudentsTest.txt")));
             // Clear student list.
             studentlist.clear();
-            
+
             String line;
             // While file in not empty, continue.
             while ((line = fileReader.readLine()) != null) {
@@ -1324,16 +1319,16 @@ public class EntityManager {
                     studentlist.add(student);
                 }
             }
-            
+
             // Flush and then close file stream.
             fileReader.close();
-            
+
         } catch (IOException e) { // File IO error print.
             System.err.println("BEEP BOOP, COULDNT LOAD STUDENTS... "
                     + "please check the save directory in the code.");
         }
     }
-    
+
     /**
      * Load furniture list from previously saved game file.
      */
@@ -1346,7 +1341,7 @@ public class EntityManager {
                             + ("\\Documents\\zuul\\SaveItemsTest.txt")));
             // Clear student list.
             furniturelist.clear();
-            
+
             String line;
             // While file in not empty, continue.
             while ((line = fileReader.readLine()) != null) {
@@ -1367,7 +1362,7 @@ public class EntityManager {
                                     tokens[3]);
                             furniturelist.add(c);
                             break;
-                            
+
                         /* If table, instantiate furniture and add to furniture
                            list. */
                         case "Table":
@@ -1376,21 +1371,31 @@ public class EntityManager {
                                     64,
                                     64,
                                     (Room) rm.getRoomlist().get(tokens[2]),
-                                    true,
-                                    2);
+                                    false,
+                                    0);
                             furniturelist.add(t);
                             break;
-                            
+                        case "Door":
+                            Door g = new Door(Integer.parseInt(tokens[0]),
+                                    Integer.parseInt(tokens[1]),
+                                    64,
+                                    64, tokens[5],
+                                    (Room) rm.getRoomlist().get(tokens[3]),
+                                    tokens[4], Boolean.parseBoolean(tokens[6])
+                            );
+                            furniturelist.add(g);
+                            break;
+
                         // If anything else, then ignore.
                         default:
                             break;
                     }
                 }
             }
-            
+
             // Flush and then close file stream.
             fileReader.close();
-            
+
         } catch (IOException e) { // File IO error print.
             System.err.println("BEEP BOOP, COULDNT LOAD FURNITURE... "
                     + "please check the save directory in the code.");

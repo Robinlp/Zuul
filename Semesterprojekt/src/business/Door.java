@@ -7,7 +7,6 @@ package business;
 public class Door extends Furniture {
 
     private String direction;
-    private String doorImage = "/textures/door2.png"; // Path to texture.
     private Player player;
     private RoomManager roomManager;
     private boolean isLocked;
@@ -20,6 +19,7 @@ public class Door extends Furniture {
                 "Door", // Item name.
                 "This is a door, maybe you should open it");  // Item description.
         super.setEntityImage(imagePath);
+        super.setFurnitureImage(imagePath);
         this.direction = direction;
         this.isLocked = isLocked;
     }
@@ -97,4 +97,11 @@ public class Door extends Furniture {
         return super.getY();
     }
 
+    @Override
+    public String getDirection() {
+        return direction;
+    }
+
+   
+    
 }

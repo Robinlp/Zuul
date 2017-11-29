@@ -9,7 +9,17 @@ public abstract class Furniture extends Entity {
     private String furnitureName; // Name of the furniture.
     private String furnitureDescription; // Description of furniture.
     private String imagePath;
-    
+    private boolean isLocked;
+    private String direction;
+    public boolean getIsLocked(){
+        return isLocked;
+    }
+    public String getDirection(){
+        return direction;
+    }
+    public void setFurnitureImage(String furnitureImage) {
+        this.imagePath = furnitureImage;
+    }
     /**
      * Constructor for Furniture class.
      * 

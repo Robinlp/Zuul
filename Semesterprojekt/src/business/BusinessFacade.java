@@ -74,8 +74,18 @@ public class BusinessFacade implements IBusiness {
     @Override
     public void loadGame() {
         entityManager.getPlayer().getCurrentRoom().getEntities()[entityManager.getPlayer().getY()][entityManager.getPlayer().getX()] = null;
+           
         entityManager.loadGame();
+        
         entityManager.getPlayer().getCurrentRoom().getEntities()[entityManager.getPlayer().getY()][entityManager.getPlayer().getX()] = entityManager.getPlayer();
+        
+        for (int i = 0; i < entityManager.getFurnitureList().size(); i++) {
+            if (entityManager.getFurnitureList().get(i) instanceof Door) {
+                Door d = (Door) entityManager.getFurnitureList().get(i);
+                d.setPlayer(entityManager.getPlayer());
+                d.setRoomManager(roomManager);
+            }
+        }
         roomManager.setCurrentRoom(entityManager.getPlayer().getCurrentRoom());
     }
 
