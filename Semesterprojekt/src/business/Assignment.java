@@ -73,6 +73,7 @@ public class Assignment extends Item {
                 if(p.getGradedAssignments() >= 2){
                     System.out.println("you won");
                     //quit game
+                    System.exit(0);
                 }
 
             }

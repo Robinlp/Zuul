@@ -154,14 +154,6 @@ public class BusinessFacade implements IBusiness {
         if (toUse.use(entityManager.getPlayer()))
          entityManager.getPlayer().inventory().removeItem(toUse);
                 
-//        (o instanceof Assignment && entityManager.getPlayer().getCurrentRoom().getName().equals("teacher room") && entityManager.getPlayer().getEnergy() >= 20) {
-//        Item toUse = (Item) o;
-//        toUse.use(entityManager.getPlayer());
-//        entityManager.getPlayer().inventory().removeItem(toUse);
-//        } else if (o instanceof Assignment && entityManager.getPlayer().getCurrentRoom().getName().("teacher room")) {
-//            System.out.println("You do not have energy to do this or you are not in your own room");
-//        } else {
-//        }
           } 
 
     /**
