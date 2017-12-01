@@ -2,6 +2,7 @@ package business;
 
 import Acq.IBusiness;
 import Acq.IData;
+import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ListView;
 
@@ -150,9 +151,18 @@ public class BusinessFacade implements IBusiness {
     @Override
     public void itemUse(Object o) {
         Item toUse = (Item) o;
-        toUse.use(entityManager.getPlayer());
-        entityManager.getPlayer().inventory().removeItem(toUse);
-    }
+        if (toUse.use(entityManager.getPlayer()))
+         entityManager.getPlayer().inventory().removeItem(toUse);
+                
+//        (o instanceof Assignment && entityManager.getPlayer().getCurrentRoom().getName().equals("teacher room") && entityManager.getPlayer().getEnergy() >= 20) {
+//        Item toUse = (Item) o;
+//        toUse.use(entityManager.getPlayer());
+//        entityManager.getPlayer().inventory().removeItem(toUse);
+//        } else if (o instanceof Assignment && entityManager.getPlayer().getCurrentRoom().getName().("teacher room")) {
+//            System.out.println("You do not have energy to do this or you are not in your own room");
+//        } else {
+//        }
+          } 
 
     /**
      * drops a given item

@@ -44,7 +44,7 @@ public class Coffee extends Item {
      * @param p     Player, player is the one using the item.
      */
     @Override
-    public void use(Player p) {
+    public boolean use(Player p) {
         // If it does not max out player energy, restore energy.
         if (p.getEnergyCap() < ENERGY_RESTORE + p.getEnergy()) {
             p.setEnergy(ENERGY_RESTORE + p.getEnergy());
@@ -52,6 +52,6 @@ public class Coffee extends Item {
         // Otherwise set energy to max of capacity.
         } else {
             p.setEnergy(p.getEnergyCap());
-        }
-    }
+        } return true;
+    } 
 }

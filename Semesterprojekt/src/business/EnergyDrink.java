@@ -44,7 +44,8 @@ public class EnergyDrink extends Item {
      * @param p     Player, player is the one using the item.
      */
     @Override
-    public void use(Player p) {
+    public boolean use(Player p) {
         p.setEnergy(ENERGY_RESTORE + p.getEnergy());
+        return true;
     }
 }
