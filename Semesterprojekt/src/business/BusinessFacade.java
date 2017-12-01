@@ -169,5 +169,10 @@ public class BusinessFacade implements IBusiness {
     @Override
     public void playerDropItem(int index) {
     }
+   
+    @Override
+    public int getAssignment() {
+        return entityManager.getPlayer().getGradedAssignments();
+    }
 
 }
