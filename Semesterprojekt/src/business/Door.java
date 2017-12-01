@@ -11,11 +11,11 @@ public class Door extends Furniture {
     private RoomManager roomManager;
     private boolean isLocked;
 
-    public Door(int x, int y, int width, int height,
+    public Door(int x, int y,
             Room currentRoom, String imagePath, boolean isLocked) {
 
         // Pass arguments to superclass.
-        super(x, y, width, height, currentRoom,
+        super(x, y, currentRoom,
                 "Door", // Item name.
                 "This is a door, maybe you should open it");  // Item description.
         super.setEntityImage(imagePath);

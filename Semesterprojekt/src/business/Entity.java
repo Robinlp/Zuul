@@ -17,16 +17,14 @@ public abstract class Entity {
      * 
      * @param x             int, horizontal position in room grid.
      * @param y             int, vertical position in room grid.
-     * @param width         int, pixel width of coffee.
-     * @param height        int, pixel height of coffee.
      * @param currentRoom   Room, currently in this room.
      */
-    public Entity(int x, int y, int width, int height, Room currentRoom) {
+    public Entity(int x, int y, Room currentRoom) {
         // Assign parameters to variables.
         this.x = x;
         this.y = y;
-        this.width = width;
-        this.height = height;
+        this.width = 64;
+        this.height = 64;
         this.currentRoom = currentRoom;
     }
     

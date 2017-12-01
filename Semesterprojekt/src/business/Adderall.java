@@ -22,15 +22,11 @@ public class Adderall extends Item{
      */
     public Adderall(int x,
             int y,
-            int width,
-            int height,
             Room currentRoom) {
         
         // Pass arguments to superclass
         super(x,
                 y,
-                width,
-                height,
                 currentRoom,
                 "Adderall",                                 // Name of item.
                 "Energy restore and cap increase. Yay!",    // Item description.

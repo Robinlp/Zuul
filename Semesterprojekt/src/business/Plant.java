@@ -18,15 +18,11 @@ public class Plant extends Furniture /*implements Interactable*/{
      */
     public Plant(int x,
             int y,
-            int width,
-            int height,
             Room currentRoom, String imagePath){
             
         // Pass arguments to superclass.
         super(x,
                 y,
-                width,
-                height,
                 currentRoom,
                 "Plant",            // Item name.
                 "Looks so lovely");  // Item description.

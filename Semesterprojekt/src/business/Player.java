@@ -30,8 +30,6 @@ public class Player extends Person {
     public Player(int x, int y, String name, Room currentRoom, EntityManager em) {
         super(x,
                 y,
-                Person.DEFAULT_PERSON_WIDTH,
-                Person.DEFAULT_PERSON_HEIGHT,
                 currentRoom, em);
         // Pass image path to Superclass.
         super.setEntityImage(playerImage);

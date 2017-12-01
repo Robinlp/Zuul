@@ -453,8 +453,6 @@ public class EntityManager {
             case "ID63":
                 furniturelist.add(new Door(j,
                         i,
-                        64,
-                        64,
                         rm.getRoom(name),
                         "/textures/door2.png",
                         false));
@@ -464,8 +462,6 @@ public class EntityManager {
             case "ID63L":
                 furniturelist.add(new Door(j,
                         i,
-                        64,
-                        64,
                         rm.getRoom(name),
                         "/textures/door2.png",
                         true));
@@ -475,8 +471,6 @@ public class EntityManager {
             case "ID64":
                 furniturelist.add(new Door(j,
                         i,
-                        64,
-                        64,
                         rm.getRoom(name),
                         "/textures/door1.png",
                         false));
@@ -486,8 +480,6 @@ public class EntityManager {
             case "ID64L":
                 furniturelist.add(new Door(j,
                         i,
-                        64,
-                        64,
                         rm.getRoom(name),
                         "/textures/door1.png",
                         true));
@@ -497,8 +489,6 @@ public class EntityManager {
             case "ID65":
                 furniturelist.add(new Door(j,
                         i,
-                        64,
-                        64,
                         rm.getRoom(name),
                         "/textures/door12.png", false));
                 break;
@@ -507,8 +497,6 @@ public class EntityManager {
             case "ID65L":
                 furniturelist.add(new Door(j,
                         i,
-                        64,
-                        64,
                         rm.getRoom(name),
                         "/textures/door12.png", true));
                 break;
@@ -517,8 +505,6 @@ public class EntityManager {
             case "ID66":
                 furniturelist.add(new Door(j,
                         i,
-                        64,
-                        64,
                         rm.getRoom(name),
                         "/textures/door11.png", false));
                 break;
@@ -527,8 +513,6 @@ public class EntityManager {
             case "ID66L":
                 furniturelist.add(new Door(j,
                         i,
-                        64,
-                        64,
                         rm.getRoom(name),
                         "/textures/door11.png", true));
                 break;
@@ -537,8 +521,6 @@ public class EntityManager {
             case "ID67":
                 furniturelist.add(new Door(j,
                         i,
-                        64,
-                        64,
                         rm.getRoom(name),
                         "/textures/door13.png", false));
                 break;
@@ -547,8 +529,6 @@ public class EntityManager {
             case "ID67L":
                 furniturelist.add(new Door(j,
                         i,
-                        64,
-                        64,
                         rm.getRoom(name),
                         "/textures/door13.png", true));
                 break;
@@ -557,8 +537,6 @@ public class EntityManager {
             case "ID68":
                 furniturelist.add(new Door(j,
                         i,
-                        64,
-                        64,
                         rm.getRoom(name),
                         "/textures/door14.png", false));
                 break;
@@ -567,8 +545,6 @@ public class EntityManager {
             case "ID68L":
                 furniturelist.add(new Door(j,
                         i,
-                        64,
-                        64,
                         rm.getRoom(name),
                         "/textures/door14.png", true));
                 break;
@@ -577,16 +553,12 @@ public class EntityManager {
             case "ID69":
                 itemlist.add(new Assignment(j,
                         i,
-                        64,
-                        64,
                         rm.getRoom(name)));
 
             // Chair facing north.
             case "ID71":
                 furniturelist.add(new Chair(j,
                         i,
-                        64,
-                        64,
                         rm.getRoom(name),
                         "/textures/chair3.png"));
                 break;
@@ -595,8 +567,6 @@ public class EntityManager {
             case "ID72":
                 furniturelist.add(new Chair(j,
                         i,
-                        64,
-                        64,
                         rm.getRoom(name),
                         "/textures/chair4.png"));
                 break;
@@ -605,8 +575,6 @@ public class EntityManager {
             case "ID73":
                 furniturelist.add(new Table(j,
                         i,
-                        64,
-                        64,
                         rm.getRoom(name),
                         false, 0,"/textures/table1.png"));
                 break;
@@ -615,8 +583,6 @@ public class EntityManager {
             case "ID74":
                 furniturelist.add(new Bookcase(j,
                         i,
-                        64,
-                        64,
                         rm.getRoom(name),
                         "/textures/bookcase1.png"));
                 break;
@@ -625,8 +591,6 @@ public class EntityManager {
             case "ID75":
                 furniturelist.add(new Bookcase(j,
                         i,
-                        64,
-                        64,
                         rm.getRoom(name),
                         "/textures/bookcase2.png"));
                 break;
@@ -635,8 +599,6 @@ public class EntityManager {
             case "ID76":
                 furniturelist.add(new Bookcase(j,
                         i,
-                        64,
-                        64,
                         rm.getRoom(name),
                         "/textures/bookcase3.png"));
                 break;
@@ -645,8 +607,6 @@ public class EntityManager {
             case "ID77":
                 furniturelist.add(new Bookcase(j,
                         i,
-                        64,
-                        64,
                         rm.getRoom(name),
                         "/textures/bookcase4.png"));
                 break;
@@ -655,8 +615,6 @@ public class EntityManager {
             case "ID78":
                 furniturelist.add(new Bookcase(j,
                         i,
-                        64,
-                        64,
                         rm.getRoom(name),
                         "/textures/bookcase5.png"));
                 break;
@@ -665,8 +623,6 @@ public class EntityManager {
             case "ID79":
                 furniturelist.add(new Bookcase(j,
                         i,
-                        64,
-                        64,
                         rm.getRoom(name),
                         "/textures/bookcase6.png"));
                 break;
@@ -675,8 +631,6 @@ public class EntityManager {
             case "ID80":
                 Table pool1 = new Table(j,
                         i,
-                        64,
-                        64,
                         rm.getRoom(name), false, 0,
                         "/textures/pooltable2.png");
                 pool1.setFurnitureDescription("This is a pooltable!, "
@@ -687,8 +641,6 @@ public class EntityManager {
             case "ID81":
                 Table pool2 = new Table(j,
                         i,
-                        64,
-                        64,
                         rm.getRoom(name), false, 0,
                         "/textures/pooltable2.png");
                 pool2.setFurnitureDescription("This is a pooltable!, "
@@ -700,27 +652,23 @@ public class EntityManager {
             case "ID82":
                 itemlist.add(new Key(j,
                         i,
-                        64,
-                        64,
                         rm.getRoom(name)));
                 break;
 
             // Coffee item.
             case "ID83":
-                itemlist.add(new Coffee(j, i, 64, 64, rm.getRoom(name)));
+                itemlist.add(new Coffee(j, i, rm.getRoom(name)));
                 break;
                 
             // Adderall item.
             case "ID84":
-                itemlist.add(new Adderall(j, i, 64, 64, rm.getRoom(name)));
+                itemlist.add(new Adderall(j, i, rm.getRoom(name)));
                 break;
 
             // Bench facing west, top end part.
             case "ID96":
                 furniturelist.add(new Chair(j,
                         i,
-                        64,
-                        64,
                         rm.getRoom(name),
                         "/textures/bench6.png"));
                 break;
@@ -729,8 +677,6 @@ public class EntityManager {
             case "ID97":
                 furniturelist.add(new Chair(j,
                         i,
-                        64,
-                        64,
                         rm.getRoom(name),
                         "/textures/bench5.png"));
                 break;
@@ -739,8 +685,6 @@ public class EntityManager {
             case "ID98":
                 furniturelist.add(new Chair(j,
                         i,
-                        64,
-                        64,
                         rm.getRoom(name),
                         "/textures/bench4.png"));
                 break;
@@ -749,8 +693,6 @@ public class EntityManager {
             case "ID99":
                 furniturelist.add(new Chair(j,
                         i,
-                        64,
-                        64,
                         rm.getRoom(name),
                         "/textures/bench3.png"));
                 break;
@@ -1090,8 +1032,6 @@ public class EntityManager {
                         Adderall d = new Adderall(
                                 Integer.parseInt(itemData.get(1)),
                                 Integer.parseInt(itemData.get(2)),
-                                64,
-                                64,
                                 (Room) rm.getRoomlist().get(itemData.get(3)));
                         itemlist.add(d);
                         break;
@@ -1101,8 +1041,6 @@ public class EntityManager {
                         Coffee c = new Coffee(
                                 Integer.parseInt(itemData.get(1)),
                                 Integer.parseInt(itemData.get(2)),
-                                64,
-                                64,
                                 (Room) rm.getRoomlist().get(itemData.get(3)));
                         itemlist.add(c);
                         break;
@@ -1112,8 +1050,6 @@ public class EntityManager {
                         Assignment a = new Assignment(
                                 Integer.parseInt(itemData.get(1)),
                                 Integer.parseInt(itemData.get(2)),
-                                64,
-                                64,
                                 (Room) rm.getRoomlist().get(itemData.get(3)));
                         itemlist.add(a);
                         break;
@@ -1122,8 +1058,6 @@ public class EntityManager {
                     case "Key":
                         Key k = new Key(Integer.parseInt(itemData.get(1)),
                                 Integer.parseInt(itemData.get(2)),
-                                64,
-                                64,
                                 (Room) rm.getRoomlist().get(itemData.get(3)));
                         itemlist.add(k);
                         break;
@@ -1133,8 +1067,6 @@ public class EntityManager {
                         EnergyDrink e = new EnergyDrink(
                                 Integer.parseInt(itemData.get(1)),
                                 Integer.parseInt(itemData.get(2)),
-                                64,
-                                64,
                                 rm.getCurrentRoom().getExit(itemData.get(3)));
                         itemlist.add(e);
                         break;
@@ -1168,8 +1100,6 @@ public class EntityManager {
                     case "Adderall":
                         Adderall d = new Adderall(0,
                                 0,
-                                64,
-                                64,
                                 null);
                         player.inventory().addItem(d);
                         break;
@@ -1178,8 +1108,6 @@ public class EntityManager {
                     case "Coffee":
                         Coffee c = new Coffee(0,
                                 0,
-                                64,
-                                64,
                                 null);
                         player.inventory().addItem(c);
                         break;
@@ -1189,8 +1117,6 @@ public class EntityManager {
                         Assignment a = new Assignment(
                                 0,
                                 0,
-                                64,
-                                64,
                                 null);
                         player.inventory().addItem(a);
                         break;
@@ -1199,8 +1125,6 @@ public class EntityManager {
                     case "Key":
                         Key k = new Key(0,
                                 0,
-                                64,
-                                64,
                                 null);
                         player.inventory().addItem(k);
                         break;
@@ -1210,8 +1134,6 @@ public class EntityManager {
                         EnergyDrink e = new EnergyDrink(
                                 0,
                                 0,
-                                64,
-                                64,
                                 null);
                         player.inventory().addItem(e);
                         break;

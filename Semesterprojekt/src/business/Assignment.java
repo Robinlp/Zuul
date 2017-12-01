@@ -20,15 +20,11 @@ public class Assignment extends Item {
      */
     public Assignment(int x,
             int y,
-            int width,
-            int height,
             Room currentRoom) {
         
         // Pass arguments to superclass.
         super(x,
                 y,
-                width,
-                height,
                 currentRoom,
                 "Assignment",                   // Name of item.
                 "An assigment you can grade.",  // Description of item.
