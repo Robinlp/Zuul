@@ -60,7 +60,7 @@ public class BusinessFacade implements IBusiness {
     @Override
     public void resetGame(String name) {
         roomManager = new RoomManager();
-        entityManager = new EntityManager(roomManager,name);
+        entityManager = new EntityManager(roomManager, name);
         gameOver = false;
         this.seconds = startSeconds;
         

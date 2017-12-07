@@ -25,6 +25,7 @@ public class EntityManager {
     // Container for entity IDs from CSV file.
     private static HashMap<String, String[][]> entityCSV = new HashMap<>();
     private static RoomManager rm;
+    private String nameForPlayer;
 
     /**
      * Primary constructor for the EntityManager class.
@@ -32,11 +33,10 @@ public class EntityManager {
      * @param rm RoomManager, used to assign entities to a specific room.
      */
     public EntityManager(RoomManager rm, String name) {
+        this.nameForPlayer = name;
         this.rm = rm;                   // Assign room manager object to class.
         loadPresetEntities();           // Load entity IDs from CSV file.
-        //String playerName = "tempPlayerName";    // Temp define for player name.
-        addEntitiesToRooms(name); // Instantiate entities defined in CSV.
-        //player.setName(n);
+        addEntitiesToRooms(); // Instantiate entities defined in CSV.
     }
 
     // ENTITY MANAGMENT METHODS
@@ -288,7 +288,7 @@ public class EntityManager {
      *
      * @param playerName String, name of player.
      */
-    public final void addEntitiesToRooms(String playerName) {
+    public final void addEntitiesToRooms(/*String playerName*/) {
         String IDnum;
         // Get HashMap of all rooms and iterate through it based on keys.
         HashMap<String, Room> roomlist = rm.getRoomlist();
@@ -304,10 +304,10 @@ public class EntityManager {
                         continue;
                     }
                     // Call instantiation of entity based on ID number.
-                    if (playerName.equalsIgnoreCase("Peter")) {
-                        senpaiTypes(i, j, name, playerName, IDnum);
+                    if (nameForPlayer.equalsIgnoreCase("Peter")) {
+                        senpaiTypes(i, j, name, nameForPlayer, IDnum);
                     } else {
-                        entityTypes(i, j, name, playerName, IDnum);
+                        entityTypes(i, j, name, nameForPlayer, IDnum);
                     }
                 }
             }
