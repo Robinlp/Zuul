@@ -12,7 +12,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.ListView;
@@ -128,14 +132,14 @@ public class FXMLDocumentController implements Initializable {
      */
     @FXML
     private void newGameButton(ActionEvent event) {
-        if (nameField.getText().length() <= 12 && nameField.getText().length() >= 4) {
+        if (nameField.getText().length() <= 8 && nameField.getText().length() >= 1) {
             //ib.playerSetName(nameField.getText());
             tempPlayerName = nameField.getText();
             nameField.setVisible(false);
             game();
         } else {
-            bottomTextArea.appendText("Your name must be shorter than or equal to 12 characters\n"
-                    + "and more than or equal to 4 characters ");
+            bottomTextArea.appendText("Your name must be shorter than or equal to 8 characters\n"
+                    + "and more than or equal to 1 characters ");
         }
 
     }
@@ -205,6 +209,9 @@ public class FXMLDocumentController implements Initializable {
 
                     //   timeLabel.setText("TIME LEFT: " +
                     //           Integer.toString(seconds));
+                    if(ib.playerHasAssignment()) {
+                        bottomTextArea.appendText("Assignment progress: " + ib.playerAssignmentProgress() + "%\n");
+                    }
                     // calls gameloop
                     ib.loop();
                     prevNanoTime = currentNanoTime;
@@ -316,12 +323,28 @@ public class FXMLDocumentController implements Initializable {
      */
     @FXML
     private void highscoreButton(ActionEvent event) {
-        bottomTextArea.clear();
+        // Loads
         ib.loadXML();
-        bottomTextArea.appendText("The highscore list for World of SDU\n");
-        bottomTextArea.appendText("---------------------------------\n");
-        bottomTextArea.appendText("NO.\t\tNAME\t\t SCORE\n");
-        bottomTextArea.appendText(ib.displayHighscore());
+        
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(
+        getClass().getResource("style.css").toExternalForm());
+        dialogPane.getStyleClass().add("alertBox");
+        
+        alert.setGraphic(null);
+        alert.setTitle("HIGHSCORES");
+        alert.setHeaderText("WHO'S BEST?" );
+        alert.setContentText( "The highscore list for World of SDU\n" +"---------------------------------\n" + "NO.\t\tNAME\t\t SCORE\n" +
+                ib.displayHighscore());
+        
+        alert.getButtonTypes().remove(1);
+        ButtonType buttonTypeClose = new ButtonType("CLOSE");
+        
+        alert.getButtonTypes().set(0, buttonTypeClose);
+        
+        alert.showAndWait();
+        
         
     }
 
@@ -353,8 +376,10 @@ public class FXMLDocumentController implements Initializable {
             if (ib.isAssignment(item)) {
                 if (ib.playerEnergy() < 20) {
                     bottomTextArea.appendText("You don't have enough energy" + "\n");
-                } else {
+                } else if(!ib.playerCurrentRoomName().equals("teacher room")) {
                     bottomTextArea.appendText("You're not in the teacher's room" + "\n");
+                } else {
+                    bottomTextArea.appendText("You're busy grading another assignment" + "\n");
                 }
             }
         }
