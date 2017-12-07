@@ -31,12 +31,12 @@ public class EntityManager {
      *
      * @param rm RoomManager, used to assign entities to a specific room.
      */
-    public EntityManager(RoomManager rm) {
+    public EntityManager(RoomManager rm, String name) {
         this.rm = rm;                   // Assign room manager object to class.
         loadPresetEntities();           // Load entity IDs from CSV file.
-        String playerName = "tempPlayerName";    // Temp define for player name.
-        addEntitiesToRooms(playerName); // Instantiate entities defined in CSV.
-        player.setName(playerName);
+        //String playerName = "tempPlayerName";    // Temp define for player name.
+        addEntitiesToRooms(name); // Instantiate entities defined in CSV.
+        //player.setName(n);
     }
 
     // ENTITY MANAGMENT METHODS

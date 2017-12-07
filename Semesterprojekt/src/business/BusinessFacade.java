@@ -28,7 +28,7 @@ public class BusinessFacade implements IBusiness {
      * No-arg constructor; call game reset, to start game from fresh.
      */
     public BusinessFacade() {
-        resetGame();
+        //resetGame();
     }
     
     /**
@@ -58,9 +58,9 @@ public class BusinessFacade implements IBusiness {
      * gameOver to false.
      */
     @Override
-    public void resetGame() {
+    public void resetGame(String name) {
         roomManager = new RoomManager();
-        entityManager = new EntityManager(roomManager);
+        entityManager = new EntityManager(roomManager,name);
         gameOver = false;
         this.seconds = startSeconds;
         
