@@ -141,7 +141,8 @@ public class FXMLDocumentController implements Initializable {
             bottomTextArea.appendText("Your name must be shorter than or equal to 8 characters\n"
                     + "and more than or equal to 1 characters ");
         }
-
+        loadButton.setVisible(true);
+        saveButton.setVisible(true);
     }
 
     private void game() {
@@ -409,7 +410,7 @@ public class FXMLDocumentController implements Initializable {
      * @return
      */
     private boolean wincodition() {
-        if (ib.amountOfGradedAssignments() >= 10) {
+        if (ib.amountOfGradedAssignments() >= 1) {
             bottomTextArea.clear();
             bottomTextArea.appendText("You have won the game, you are the "
                     + "best professer around" + "\n");

@@ -44,7 +44,7 @@
                   <Insets bottom="2.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="loadButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadButton" styleClass="load-button" stylesheets="@style.css" text="LOAD GAME">
+            <Button fx:id="loadButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadButton" styleClass="load-button" stylesheets="@style.css" text="LOAD GAME" visible="false">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -55,7 +55,7 @@
                   <Insets bottom="2.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="saveButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#saveButton" styleClass="save-button" stylesheets="@style.css" text="SAVE GAME">
+            <Button fx:id="saveButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#saveButton" styleClass="save-button" stylesheets="@style.css" text="SAVE GAME" visible="false">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
